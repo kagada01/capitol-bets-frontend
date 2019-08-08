@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import Login from "./Login";
 import Home from "../containers/Home"
 import MyBets from "../containers/MyBets"
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import store from '../redux/store'
 
 
@@ -23,14 +23,15 @@ class App extends React.Component {
 
   render() { 
     return (
-      
-        <div className="App">
-          <Login />
-          <Navbar />
-          <Home />
-          <MyBets />
+      <div>
+      <Navbar />
+      <Route exact path="/login" component={Login}></Route>
+      <Route exact path="/home" component={Home}></Route>
+      <Route exact path="/mybets" component={MyBets}></Route>
+
+
+  
         </div>
-    
     )
   }  
 }
