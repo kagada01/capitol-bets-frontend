@@ -12,21 +12,29 @@ class App extends React.Component {
    super()
 
     this.state = {
-      currentUser: null,
+      currentUser: {},
       allGames: [],
       selectedGame: [],
       allOdds: [],
-      myBets: []
+      myBets: [],
+      myWallet: null
     }
 }
 
-
   componentDidMount() {
-    fetch('http://localhost:3001/users/1')
+    fetch('http://localhost:3000/users')
     .then(res => res.json())
-    .then(data => {
-      console.log(data)
+    .then(currentUser => {
+      this.setState({
+        currentUser: currentUser,
+        myWallet: currentUser.cash
+      })
+
+      // debugger
     })
+
+    
+
   }
 
 //enhanced optic literal
@@ -42,14 +50,16 @@ class App extends React.Component {
     
       <Route exact path="/" render={() => <Redirect to="/home" />} />
     
-      <Route exact path="/login" component={Login}></Route>
+      <Route exact path="/login" render={()=> <Login />}></Route>
     
       <Route exact path="/home" render={()=> 
-        <Home user={this.state.currentUser}/>
+        <Home currentUser={this.state.currentUser} />
       }/>
       
-      <Route exact path="/mybets" component={MyBets}></Route>
-
+      <Route exact path="/mybets" render={()=>
+      <MyBets currentUser={this.state.currentUser} />
+    }/>
+    
       </Switch>
       </Fragment>
   

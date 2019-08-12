@@ -5,18 +5,32 @@ import { Button, Form, Segment, Message} from "semantic-ui-react";
 
 class Login extends React.Component {
 
+    state = {
+      username: "",
+      password: ""
+    }
+
+    handleChange = (e, {name, value}) => {
+      this.setState({ [name]: value})
+    }
+
+    handleLoginSubmit = (e) => {
+      e.preventDefault()
+      fetch('http://localhost:3000/login', {
+        method: "POST", 
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password
+        })
+      }).then(res => res.json())
+      .then(data => console.log(data))
+    }
 
     render() {
         return (
 
-            // <div className="">
-            // Login
-            
-            
-            
-            // </div>
-
-            <Segment>
+      <Segment>
         <Form
           onSubmit={this.handleLoginSubmit}
           size="mini"
@@ -33,25 +47,25 @@ class Login extends React.Component {
               label="username"
               placeholder="username"
               name="username"
-            //   onChange={this.handleChange}
-            //   value={this.state.username}
+              onChange={this.handleChange}
+              value={this.state.username}
             />
             <Form.Input
               type="password"
               label="password"
               placeholder="password"
               name="password"
-            //   onChange={this.handleChange}
-            //   value={this.state.password}
+              onChange={this.handleChange}
+              value={this.state.password}
             />
           </Form.Group>
-          <Button type="submit">Login</Button>
+          <Button type="submit">Login
+          </Button>
         </Form>
       </Segment>
         )
     }
-    
-
+  
 }
 
 export default Login;
