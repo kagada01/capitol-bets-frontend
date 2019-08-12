@@ -12,34 +12,39 @@ class App extends React.Component {
    super()
 
     this.state = {
-      currentUser: {},
+      currentUser: null,
       allGames: [],
       selectedGame: [],
       allOdds: [],
       myBets: [],
-      myWallet: null
+      myWallet: 500
     }
+}
+
+updateCurrentUser = (currentUser) => {
+  this.setState({currentUser})
 }
 
   componentDidMount() {
     fetch('http://localhost:3000/users')
     .then(res => res.json())
     .then(currentUser => {
+     
+    //  debugger
+     
       this.setState({
-        currentUser: currentUser,
-        myWallet: currentUser.cash
+          myWallet: currentUser.cash
       })
-
-      // debugger
     })
 
-    
+    //check to see if there is a jwt?
+    //if there is, fetch to get the user and update the user state
+    let token = localStorage.getItem("jwt")
+    if(token){
+      
+    }
+    //if not let them login 
 
-  }
-
-//enhanced optic literal
-  updateCurrentUser = (currentUser) => {
-    this.setState({currentUser})
   }
 
   render() { 
@@ -50,8 +55,14 @@ class App extends React.Component {
     
       <Route exact path="/" render={() => <Redirect to="/home" />} />
     
-      <Route exact path="/login" render={()=> <Login />}></Route>
-    
+      <Route exact path="/login" render={()=> {
+        return (this.state.currentUser ?   
+      <Redirect to="/home" /> :
+        <Login updateCurrentUser={this.updateCurrentUser}/>) 
+     
+    }
+  } 
+      />
       <Route exact path="/home" render={()=> 
         <Home currentUser={this.state.currentUser} />
       }/>

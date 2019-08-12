@@ -27,7 +27,19 @@ class Login extends React.Component {
           password: this.state.password
         })
       }).then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+      //  debugger
+       
+        if(data.authenticated){
+          //update state
+          this.props.updateCurrentUser(data.user)
+          //store the token in local storage
+          console.log(data.token)
+          localStorage.setItem("jwt", data.token)
+        }else{
+          alert("incorrect username or password")
+        }
+      })
     }
 
     render() {

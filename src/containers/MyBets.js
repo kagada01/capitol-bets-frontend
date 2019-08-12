@@ -8,7 +8,7 @@ class MyBets extends React.Component {
             
             <div className="MyBets">
                 MyBets 
-                <h4>Your Wallet: {this.props.currentUser.cash}</h4>
+                <h4>My Wallet: {}</h4>
                 <div>
                     <PlacedBetCard />
                     <PlacedBetCard />
