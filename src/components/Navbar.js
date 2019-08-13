@@ -1,42 +1,65 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import { Menu } from 'semantic-ui-react'
-import { NavLink } from "react-router-dom"
+import { NavLink, withRouter } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = (props) => {
+  let { location: { pathname } } = props
+  let logged_in = props.logged_in
+  let logout = () => {
+   //clear localstorage of our token
+   localStorage.removeItem("jwt")
+    //set the user state back to null
+   props.updateCurrentUser(null)
+  }
 
 return (
-<Menu>
+  <Menu>
+  {logged_in ? (
+    
+    <Fragment>
+        <Menu.Item 
+        as={NavLink}
+        to="/home"
+        name='Home' 
+        active={pathname === "/home"} 
+        />
+        
         <Menu.Item
+          as={NavLink}
+          to="/mybets"
+          name="MyBets"
+          active={pathname === "/mybets"}
+        />
+
+        <Menu.Menu position="right">
+          <Menu.Item 
+          to="/logout" 
+          name="Logout" 
+          onClick={logout} />
+        </Menu.Menu>
+      </Fragment>
+
+  ) : (
+
+    <Fragment>
+    <Menu.Item
           as={NavLink}
           to="/login"
           name='Login'
-        //   active={activeItem === 'editorials'}
-        //   onClick={this.handleItemClick}
-        >
-          Login
-        </Menu.Item>
+          active={pathname === '/login'}
+        />
 
         <Menu.Item 
         as={NavLink}
-        name='Home' 
         to="/home"
-        // active={activeItem === 'reviews'} 
-        // onClick={this.handleItemClick}
-        >
-          Home
-        </Menu.Item>
-
-        <Menu.Item
-          as={NavLink}
-          name='MyBets'
-          to="/mybets"
-        //   active={activeItem === 'upcomingEvents'}
-        //   onClick={this.handleItemClick}
-        >
-          MyBets
-        </Menu.Item>
-      </Menu>
-)
+        name='Home' 
+        active={pathname === "/home"} 
+        />
+        </Fragment>
+      )
+  }     
+   </Menu>
+    )
 }
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import Login from "./Login";
 import Home from "../containers/Home"
 import MyBets from "../containers/MyBets"
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
+import { Route, Switch, Redirect, withRouter, Link } from 'react-router-dom'
 import store from '../redux/store'
 
 class App extends React.Component {
@@ -24,13 +24,11 @@ class App extends React.Component {
 updateCurrentUser = (currentUser) => {
   this.setState({currentUser})
 }
-
+//accesses already-created users
   componentDidMount() {
     fetch('http://localhost:3000/users')
     .then(res => res.json())
     .then(currentUser => {
-     
-    //  debugger
      
       this.setState({
           myWallet: currentUser.cash
@@ -41,35 +39,48 @@ updateCurrentUser = (currentUser) => {
     //if there is, fetch to get the user and update the user state
     let token = localStorage.getItem("jwt")
     if(token){
-      
+      fetch('http://localhost:3000/home', {
+        headers: {"Authentication":`Bearer ${token}`}
+      })
+      .then(res => res.json())
+      .then(data => {
+        this.updateCurrentUser(data)
+      })
     }
     //if not let them login 
-
   }
 
   render() { 
     return (
      <Fragment>
-        <Navbar />
+        <Navbar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
       <Switch>
     
-      <Route exact path="/" render={() => <Redirect to="/home" />} />
+      <Route exact path="/" render={() => <Redirect to="/login" />} />
     
       <Route exact path="/login" render={()=> {
-        return (this.state.currentUser ?   
-      <Redirect to="/home" /> :
-        <Login updateCurrentUser={this.updateCurrentUser}/>) 
-     
-    }
-  } 
-      />
-      <Route exact path="/home" render={()=> 
-        <Home currentUser={this.state.currentUser} />
+        return (this.state.currentUser ? (  
+         
+          <Redirect to="/home" />
+        )
+           : <Login updateCurrentUser={this.updateCurrentUser}/>
+        )}
+  } />
+
+      <Route exact path="/home" render={()=> {
+        return (this.state.currentUser ?
+        
+        <Home currentUser={this.state.currentUser} /> : 
+        
+        <Redirect to="/login" />)
+        }
       }/>
+            
+      <Route exact path="/mybets" render={()=> {
+        return <MyBets currentUser={this.state.currentUser}/>}
+          }/>
       
-      <Route exact path="/mybets" render={()=>
-      <MyBets currentUser={this.state.currentUser} />
-    }/>
+    <Route exact path="/logout" render={() => <Redirect to="/login" />} />
     
       </Switch>
       </Fragment>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import { Button, Form, Segment, Message} from "semantic-ui-react";
 
-
 class Login extends React.Component {
 
     state = {
@@ -83,4 +82,4 @@ class Login extends React.Component {
   
 }
 
-export default Login;
+export default withRouter(Login);
