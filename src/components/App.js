@@ -34,6 +34,12 @@ updateCurrentUser = (currentUser) => {
           myWallet: currentUser.cash
       })
     })
+//fetch upcoming Games data from SportsRadar API
+    fetch('http://localhost:3000/games')
+    .then(res => res.json())
+    .then(upcomingGames => {
+      console.log(upcomingGames)
+    })
 
     //check to see if there is a jwt?
     //if there is, fetch to get the user and update the user state
