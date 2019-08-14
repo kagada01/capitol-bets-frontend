@@ -5,7 +5,7 @@ const GamesContainer = (props) => {
 
     return (
             <div className="GamesContainer">   
-               
+               <h2>Upcoming Games</h2>
                 {
                 props.allGames.map(gameObj => <GameCard 
                     key={gameObj.id}
@@ -13,7 +13,6 @@ const GamesContainer = (props) => {
                     />  
                 )
            }   
-              
             </div>
     )
 }

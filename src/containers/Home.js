@@ -7,7 +7,7 @@ const Home = (props) => {
         <div className="Home">Home>
             
         <div><h4>My Wallet: $500 </h4></div>    
-            <div classname="GamesContainer">
+            <div className="GamesContainer">
                 <GamesContainer
                 allGames={props.allGames} />
             </div>
