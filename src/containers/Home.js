@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import GamesContainer from "../containers/GamesContainer"
 
-class Home extends React.Component {
-
-    render() {
- 
-        return (
+const Home = (props) => {
+    return (
         
-            <div className="Home">Home
+        <div className="Home">Home>
             
-                <div><h4>My Wallet: {}</h4></div>    
-             
-            <GamesContainer/>
-            
+        <div><h4>My Wallet: $500 </h4></div>    
+            <div classname="GamesContainer">
+                <GamesContainer
+                allGames={props.allGames} />
             </div>
+        </div>
         )
-        
-    }
 }
 
 export default Home;

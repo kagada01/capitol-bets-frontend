@@ -1,23 +1,21 @@
 import React, { Component } from 'react'
 import GameCard from "../components/GameCard"
 
-class GamesContainer extends React.Component {
+const GamesContainer = (props) => {
 
-    render() {
-        return (
+    return (
             <div className="GamesContainer">   
-                GamesContainer
-                <div>
-                    <GameCard />
-                    <GameCard />
-                    <GameCard /> 
-                </div>
+               
+                {
+                props.allGames.map(gameObj => <GameCard 
+                    key={gameObj.id}
+                    gameObj={gameObj}
+                    />  
+                )
+           }   
+              
             </div>
-
-        )
-
-    }
-
+    )
 }
 
 export default GamesContainer;

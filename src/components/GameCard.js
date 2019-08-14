@@ -1,17 +1,16 @@
 import React, { Component } from "react"
 import BetCard from "./BetCard"
 
-class GameCard extends React.Component {
+const GameCard = (props) => {
 
-    render() {
         return (
             <div>   
-                GameCard
+                
+
+                
                 <BetCard />
             </div>
         )
-
-    }
 
 
 }

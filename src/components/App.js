@@ -24,22 +24,31 @@ class App extends React.Component {
 updateCurrentUser = (currentUser) => {
   this.setState({currentUser})
 }
-//accesses already-created users
+
   componentDidMount() {
+    //accesses already-created users
     fetch('http://localhost:3000/users')
     .then(res => res.json())
     .then(currentUser => {
      
+      //set current users' wallet to default amount ($500)
       this.setState({
           myWallet: currentUser.cash
+    
       })
-    })
-//fetch upcoming Games data from SportsRadar API
-    fetch('http://localhost:3000/games')
-    .then(res => res.json())
-    .then(upcomingGames => {
-      console.log(upcomingGames)
-    })
+      //fetch upcoming Games data from SportsRadar API
+      fetch('http://localhost:3000/games')
+      .then(res => res.json())
+      .then(upcomingGames => {
+     
+      //set allGames state to every game from that day
+        this.setState({
+          allGames: upcomingGames
+        })
+
+      })
+
+  })
 
     //check to see if there is a jwt?
     //if there is, fetch to get the user and update the user state
@@ -76,8 +85,10 @@ updateCurrentUser = (currentUser) => {
       <Route exact path="/home" render={()=> {
         return (this.state.currentUser ?
         
-        <Home currentUser={this.state.currentUser} /> : 
-        
+        <Home 
+        currentUser={this.state.currentUser} 
+        allGames={this.state.allGames}
+        /> : 
         <Redirect to="/login" />)
         }
       }/>
