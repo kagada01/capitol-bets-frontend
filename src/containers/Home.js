@@ -9,7 +9,8 @@ const Home = (props) => {
         <div><h4>My Wallet: $500 </h4></div>    
             <div className="GamesContainer">
                 <GamesContainer
-                allGames={props.allGames} />
+                allGames={props.allGames} 
+                goToBets={props.goToBets}/>
             </div>
         </div>
         )

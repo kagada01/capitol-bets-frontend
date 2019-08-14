@@ -65,6 +65,12 @@ updateCurrentUser = (currentUser) => {
     //if not let them login 
   }
 
+ goToBets = (e) => {
+    e.preventDefault();
+    console.log("trying to place a bet")
+}
+
+
   render() { 
     return (
      <Fragment>
@@ -88,6 +94,7 @@ updateCurrentUser = (currentUser) => {
         <Home 
         currentUser={this.state.currentUser} 
         allGames={this.state.allGames}
+        goToBets={this.goToBets}
         /> : 
         <Redirect to="/login" />)
         }

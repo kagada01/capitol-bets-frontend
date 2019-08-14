@@ -11,6 +11,7 @@ const GamesContainer = (props) => {
                 props.allGames.map(gameObj => <GameCard 
                     key={gameObj.id}
                     gameObj={gameObj}
+                    goToBets={props.goToBets}
                     />  
                 )
            }   
