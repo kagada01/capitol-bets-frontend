@@ -67,7 +67,8 @@ updateCurrentUser = (currentUser) => {
 
  goToBets = (e) => {
     e.preventDefault();
-    console.log("trying to place a bet")
+    console.log(e.target)
+    // debugger
 }
 
 
