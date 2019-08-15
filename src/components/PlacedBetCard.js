@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 
-class PlacedBetCard extends React.Component {
-
-    render() {
+const PlacedBetCard = (props) => {
 
         return(
             <div className="BetCard">
@@ -10,9 +8,6 @@ class PlacedBetCard extends React.Component {
             </div>
 
         )
-
-    }
-
 }
 
 export default PlacedBetCard;

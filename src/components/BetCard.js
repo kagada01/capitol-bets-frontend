@@ -1,19 +1,17 @@
 import React, { Component } from "react"
 
+const BetCard = (props) => {
 
-class BetCard extends React.Component {
-
-    render() {
+        console.log(props)
         return (
+        
         <div>
-            BetCard
+            {props.selectedGame.game_location
+            }
         </div>
-
         )
 
-    }
 
 }
-
 
 export default BetCard;

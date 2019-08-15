@@ -6,6 +6,7 @@ const GamesContainer = (props) => {
 
     return (
             <div className="GamesContainer">   
+            <h1>Select matchup:</h1>
                <h3>Upcoming Games: {moment().format('MMMM Do, YYYY')}</h3>
                 {
                 props.allGames.map(gameObj => <GameCard 

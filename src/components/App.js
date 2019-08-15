@@ -6,6 +6,7 @@ import Home from "../containers/Home"
 import MyBets from "../containers/MyBets"
 import { Route, Switch, Redirect, withRouter, Link } from 'react-router-dom'
 import store from '../redux/store'
+import BetCard from './BetCard';
 
 class App extends React.Component {
   constructor() {
@@ -14,7 +15,6 @@ class App extends React.Component {
     this.state = {
       currentUser: null,
       allGames: [],
-      selectedGame: [],
       allOdds: [],
       myBets: [],
       myWallet: 500
@@ -45,7 +45,6 @@ updateCurrentUser = (currentUser) => {
         this.setState({
           allGames: upcomingGames
         })
-
       })
 
   })
@@ -65,19 +64,16 @@ updateCurrentUser = (currentUser) => {
     //if not let them login 
   }
 
- goToBets = (e) => {
-    e.preventDefault();
-    console.log(e.target)
-    // debugger
-}
+  //set selected game as state for placing a bet
+  //event handler for selecting GameObject to Bet on
 
-
+ 
   render() { 
     return (
      <Fragment>
         <Navbar logged_in={this.state.currentUser} updateCurrentUser={this.updateCurrentUser}/>
       <Switch>
-    
+  
       <Route exact path="/" render={() => <Redirect to="/login" />} />
     
       <Route exact path="/login" render={()=> {
@@ -95,7 +91,8 @@ updateCurrentUser = (currentUser) => {
         <Home 
         currentUser={this.state.currentUser} 
         allGames={this.state.allGames}
-        goToBets={this.goToBets}
+        selectedGame={this.state.selectedGame}
+        
         /> : 
         <Redirect to="/login" />)
         }
