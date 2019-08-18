@@ -5,7 +5,14 @@ import BetCard from '../components/BetCard';
 class Home extends React.Component {
     
     state = {
-        selectedGame:[]
+        selectedGame:[],
+        currentBet: []
+    }
+
+    postBet = () => {
+       
+       
+        console.log("test")
     }
 
     //callback function to update selectedGame state when clicking a given GameCard
@@ -33,6 +40,7 @@ class Home extends React.Component {
             <div className="BetCard">
             <BetCard 
             selectedGame={this.state.selectedGame}
+            postBet={this.postBet}
             />
             
             </div>
