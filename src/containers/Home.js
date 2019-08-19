@@ -8,13 +8,15 @@ betURL = "http://localhost:3000/bets"
 
     state = {
         selectedGame:[],
-        currentBet: []
+        currentBet: [],
+        moneyLine: 0,
+        wagerAmount: 0,
+        payout: 0
     }
 
     postBet = () => {
         console.log("trying to post bet")
-
-        // fetch('')
+      
     }
 
     //callback function to update selectedGame state when clicking a given GameCard
@@ -44,6 +46,9 @@ betURL = "http://localhost:3000/bets"
             selectedGame={this.state.selectedGame}
             postBet={this.postBet}
             currentUser={this.props.currentUser}
+            moneyLine={this.state.moneyLine}
+            wagerAmount={this.state.wagerAmount}
+            payout={this.state.payout}
             />
             
             </div>

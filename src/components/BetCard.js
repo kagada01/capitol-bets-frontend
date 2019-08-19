@@ -23,8 +23,12 @@ const FormExampleEvenlyDividedGroup = (props) => (
         </Form.Field>
       </Form.Group>
       <PlaceBetButton
-      postBet={props.postBet}
-      currentUser={props.currentUser}/>
+          postBet={props.postBet}
+          currentUser={props.currentUser}
+          moneyLine={props.moneyLine}
+          wagerAmount={props.wagerAmount}
+          payout={props.payout}
+      />
     </Form>
   
 ) :
