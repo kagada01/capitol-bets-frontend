@@ -23,25 +23,39 @@ betURL = "http://localhost:3000/bets"
 
 //*************Place Bet Form****************//
     //callback function for controlled Money Line input
-    getMoneyLine = (props) => {
-        console.log("trying to retrieve Money Line")
+    getMoneyLine = (event) => {
+        let newMoneyLine = event.target.value
+        this.setState({
+            moneyLine: newMoneyLine 
+        })
     }
 
     //callback function for controlled Wager Amount input
-    getWagerAmount = (props) => {
-        console.log("trying to retrieve Wager Amount")
+    getWagerAmount = (event) => {
+        let newWagerAmount = event.target.value
+        this.setState({
+            wagerAmount: newWagerAmount
+        })
     }
 
-    //callback function for controlled Payout input
-    getPayout = (props) => {
-        console.log("trying to retrieve Payout")
+    //callback function for controlled Payout input 
+    getPayout = (state) => {
+        
     }
 
     //Placebet Form submission button callback function
     //will take form data and turn into a Bet object
     //then post it to /bets
-    postBet = () => {
+    postBet = (state, betUrl) => {
         console.log("trying to post bet")
+        // fetch(betUrl, {
+        //     method: 'POST',
+        //     body: JSON.stringify(),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }.then(res => res.json())
+        //     .then(placedBetObj => console.log(placedBetObj))
+        // })
     }
 
     render(){
