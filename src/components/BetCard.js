@@ -1,7 +1,9 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import { Form, Input } from 'semantic-ui-react'
+import PlaceBetButton from './PlaceBetButton'
 
 const FormExampleEvenlyDividedGroup = (props) => (
+<Fragment>
     <Form>
       <Form.Group widths='equal'>
         <Form.Field>
@@ -18,10 +20,13 @@ const FormExampleEvenlyDividedGroup = (props) => (
         </Form.Field>
       </Form.Group>
     </Form>
-  )
+
+  <PlaceBetButton/>
+
+</Fragment>
+)
   
   export default FormExampleEvenlyDividedGroup
-
 
 
 

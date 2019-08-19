@@ -36,7 +36,7 @@ class Home extends React.Component {
                 
                 />
             </div>
-
+        
             <div className="BetCard">
             <BetCard 
             selectedGame={this.state.selectedGame}
