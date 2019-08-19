@@ -1,13 +1,16 @@
 import React, { Component, Fragment } from "react"
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Input, Divider } from 'semantic-ui-react'
 import PlaceBetButton from './PlaceBetButton'
 
 const FormExampleEvenlyDividedGroup = (props) => (
+
 <Fragment>
+  
+  {props.selectedGame !== [] ? (
     <Form>
       <Form.Group widths='equal'>
         <Form.Field>
-          <label>Suggested Odds</label>
+          <label>Set Money Line</label>
           <Input fluid placeholder='+250' />
         </Form.Field>
         <Form.Field>
@@ -19,33 +22,20 @@ const FormExampleEvenlyDividedGroup = (props) => (
           <Input fluid placeholder='Payout' />
         </Form.Field>
       </Form.Group>
+      <PlaceBetButton
+      postBet={props.postBet}
+      currentUser={props.currentUser}/>
     </Form>
-
-  <PlaceBetButton/>
-
-</Fragment>
-)
   
+) :
+    
+{
+
+}
+  }
+</Fragment>
+  
+)
+
+
   export default FormExampleEvenlyDividedGroup
-
-
-
-// const BetCard = (props) => {
-//     //set state here for Form fields
-//     //upon form submission, use this.setState to envoke callback function from Home
-
-
-//         console.log(props)
-//         return (
-        
-//         <div>
-//             {props.selectedGame.game_location}
-            
-        
-//         </div>
-//         )
-
-
-// }
-
-// export default BetCard;

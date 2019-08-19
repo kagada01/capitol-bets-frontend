@@ -5,7 +5,7 @@ import Login from "./Login";
 import Home from "../containers/Home"
 import MyBets from "../containers/MyBets"
 import { Route, Switch, Redirect, withRouter, Link } from 'react-router-dom'
-import store from '../redux/store'
+// import store from '../redux/store'
 import BetCard from './BetCard';
 
 class App extends React.Component {

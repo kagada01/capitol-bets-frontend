@@ -4,15 +4,17 @@ import BetCard from '../components/BetCard';
 
 class Home extends React.Component {
     
+betURL = "http://localhost:3000/bets"
+
     state = {
         selectedGame:[],
         currentBet: []
     }
 
     postBet = () => {
-       
-       
-        console.log("test")
+        console.log("trying to post bet")
+
+        // fetch('')
     }
 
     //callback function to update selectedGame state when clicking a given GameCard
@@ -41,6 +43,7 @@ class Home extends React.Component {
             <BetCard 
             selectedGame={this.state.selectedGame}
             postBet={this.postBet}
+            currentUser={this.props.currentUser}
             />
             
             </div>
