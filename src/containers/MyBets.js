@@ -3,20 +3,43 @@ import PlacedBetCard from "../components/PlacedBetCard"
 
 class MyBets extends React.Component {
 
+    state = {
+        MyBets: []
+    }
+
+    componentDidMount(){
+       fetch("http://localhost:3000/bets") 
+       .then(res => res.json())
+       .then(betsData => {
+            let filteredBets = betsData.filter(betsObj => {
+                console.log(betsObj.id)
+                return betsObj.user_id == localStorage.getItem("user_id")
+        })
+        console.log(filteredBets)
+        this.setState({
+            MyBets: filteredBets
+        })
+    })
+    }
+
     render() {
         return (
             
             <div className="MyBets">
                 MyBets 
                 <h4>My Wallet: $500</h4>
-                <div>
-                    <PlacedBetCard />
-                    <PlacedBetCard />
-                    <PlacedBetCard />
-                </div>
+                {
+                   this.state.MyBets.map(betObj => <PlacedBetCard 
+                    key={betObj.id}
+                    betObj={betObj}
+
+                   />
+                   )
+                }
             </div>
         )
         }
-}
+
+    }
 
 export default MyBets

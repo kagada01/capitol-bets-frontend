@@ -16,7 +16,6 @@ class App extends React.Component {
       currentUser: null,
       allGames: [],
       allOdds: [],
-      myBets: [],
       myWallet: 500
     }
 }
@@ -89,17 +88,19 @@ updateCurrentUser = (currentUser) => {
         
         <Home 
         currentUser={this.state.currentUser} 
-        allGames={this.state.allGames}
-        selectedGame={this.state.selectedGame}
-        
+        allGames={this.state.allGames}     
+        myBets={this.state.myBets}   
         /> : 
         <Redirect to="/login" />)
         }
       }/>
             
       <Route exact path="/mybets" render={()=> {
-        return <MyBets currentUser={this.state.currentUser}/>}
-          }/>
+        return <MyBets 
+        currentUser={this.state.currentUser}
+        myBets={this.state.myBets}/>
+        }
+      }/>
       
     <Route exact path="/logout" render={() => <Redirect to="/login" />} />
     

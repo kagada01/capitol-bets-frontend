@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GamesContainer from "../containers/GamesContainer"
 import BetCard from '../components/BetCard';
+import { StepTitle } from 'semantic-ui-react';
 
 class Home extends React.Component {
     
@@ -8,7 +9,7 @@ betURL = "http://localhost:3000/bets"
 
     state = {
         selectedGame:[],
-        currentBet: [],
+        currentBet: [],  
         moneyLine: 0,
         wagerAmount: 0,
         payout: 0
@@ -50,7 +51,6 @@ betURL = "http://localhost:3000/bets"
     //will take form data and turn into a Bet object
     //then post it to /bets
     postBet = (state) => {
-        
         let data = {
             game_id: this.state.selectedGame.id,
             user_id: localStorage.getItem("user_id"),
@@ -59,8 +59,9 @@ betURL = "http://localhost:3000/bets"
             wager_amount: this.state.wagerAmount,
             winner_id: 0
         }
-        console.log(data)
-
+    
+        //NEED TO IMPLEMENT WORKING ALERT IF NO GAME IS SELECTED
+        // data.game_id ? ( 
         fetch("http://localhost:3000/bets", {
             method: 'POST',
             headers: {
@@ -68,8 +69,13 @@ betURL = "http://localhost:3000/bets"
             },
             body: JSON.stringify(data)})
             .then(res => res.json())
-            .then(placedBetObj => console.log(placedBetObj))
-        
+            .then(placedBetObj => {
+                console.log(placedBetObj)
+                this.props.myBets.push(placedBetObj)
+            })
+        // ) : ( 
+        //     alert("Please select a game to bet on!")
+        //  )
     }
 
     render(){

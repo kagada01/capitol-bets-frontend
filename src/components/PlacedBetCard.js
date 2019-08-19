@@ -4,7 +4,10 @@ const PlacedBetCard = (props) => {
 
         return(
             <div className="BetCard">
-                PlacedBetCard
+                {
+                
+
+                }
             </div>
 
         )

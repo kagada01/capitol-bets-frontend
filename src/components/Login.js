@@ -15,7 +15,7 @@ class Login extends React.Component {
 
     handleLoginSubmit = (e) => {
       e.preventDefault()
-      console.log("test")
+      // console.log("test")
       fetch('http://localhost:3000/login', {
         method: 'POST', 
         headers: {
@@ -33,7 +33,7 @@ class Login extends React.Component {
           //update state
           this.props.updateCurrentUser(data.user)
           //store the token in local storage
-          console.log(data.token)
+          // console.log(data.token)
           localStorage.setItem("jwt", data.token)
           // debugger
           localStorage.setItem("user_id", data.user.id)
