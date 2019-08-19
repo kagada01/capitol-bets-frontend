@@ -4,7 +4,8 @@ import PlacedBetCard from "../components/PlacedBetCard"
 class MyBets extends React.Component {
 
     state = {
-        MyBets: []
+        MyBets: [],
+        myGames: []
     }
 
     componentDidMount(){
@@ -12,15 +13,15 @@ class MyBets extends React.Component {
        .then(res => res.json())
        .then(betsData => {
             let filteredBets = betsData.filter(betsObj => {
-                console.log(betsObj.id)
+                // console.log(betsObj.id)
                 return betsObj.user_id == localStorage.getItem("user_id")
         })
-        console.log(filteredBets)
+        // console.log(filteredBets)
         this.setState({
             MyBets: filteredBets
         })
     })
-    }
+}
 
     render() {
         return (
