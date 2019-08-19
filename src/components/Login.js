@@ -35,6 +35,8 @@ class Login extends React.Component {
           //store the token in local storage
           console.log(data.token)
           localStorage.setItem("jwt", data.token)
+          // debugger
+          localStorage.setItem("user_id", data.user.id)
         }else{
           alert("incorrect username or password")
         }

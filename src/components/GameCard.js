@@ -3,10 +3,10 @@ import { Card } from "semantic-ui-react"
 import BetCard from "./BetCard"
 
 const CardExampleLinkCardProp = (props) => (
-    
+  
+  //upon click, render new BetCard with GameCard's props
 <div onClick={() => props.goToBets(props.gameObj)}>
     <Card
-    //upon click, render new BetCard with GameCard's props
       
       key={props.gameObj.id}
       link

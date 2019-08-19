@@ -39,23 +39,37 @@ betURL = "http://localhost:3000/bets"
     }
 
     //callback function for controlled Payout input 
-    getPayout = (state) => {
-        
+    getPayout = (event) => {
+        let newPayout = event.target.value
+        this.setState({
+            payout: newPayout
+        })
     }
 
     //Placebet Form submission button callback function
     //will take form data and turn into a Bet object
     //then post it to /bets
-    postBet = (state, betUrl) => {
-        console.log("trying to post bet")
-        // fetch(betUrl, {
-        //     method: 'POST',
-        //     body: JSON.stringify(),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }.then(res => res.json())
-        //     .then(placedBetObj => console.log(placedBetObj))
-        // })
+    postBet = (state) => {
+        
+        let data = {
+            game_id: this.state.selectedGame.id,
+            user_id: localStorage.getItem("user_id"),
+            bet_taker_id: 0,
+            money_line_odds: this.state.moneyLine,
+            wager_amount: this.state.wagerAmount,
+            winner_id: 0
+        }
+        console.log(data)
+
+        fetch("http://localhost:3000/bets", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)})
+            .then(res => res.json())
+            .then(placedBetObj => console.log(placedBetObj))
+        
     }
 
     render(){

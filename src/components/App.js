@@ -46,7 +46,6 @@ updateCurrentUser = (currentUser) => {
           allGames: upcomingGames
         })
       })
-
   })
 
     //check to see if there is a jwt?
