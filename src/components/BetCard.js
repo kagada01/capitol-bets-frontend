@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react"
 import { Form, Input, Divider } from 'semantic-ui-react'
 import PlaceBetButton from './PlaceBetButton'
+import OddsFormDropDown from './OddsFormDropDown'
 
 const FormExampleEvenlyDividedGroup = (props) => (
 
@@ -14,6 +15,9 @@ const FormExampleEvenlyDividedGroup = (props) => (
           <Input 
             onChange={props.getMoneyLine}
             fluid placeholder='+250' 
+            />
+            <OddsFormDropDown
+            getPlusMinus={props.getPlusMinus}
             />
         </Form.Field>
         <Form.Field>

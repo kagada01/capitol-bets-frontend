@@ -9,7 +9,8 @@ betURL = "http://localhost:3000/bets"
 
     state = {
         selectedGame:[],
-        currentBet: [],  
+        currentBet: [],
+        plusMinus: null,  
         moneyLine: 0,
         wagerAmount: 0,
         payout: 0
@@ -45,6 +46,11 @@ betURL = "http://localhost:3000/bets"
         this.setState({
             payout: newPayout
         })
+    }
+
+    getPlusMinus = (event) => {
+        console.log(event)
+        let setPlusMinus = event.target.value
     }
 
     //Placebet Form submission button callback function
@@ -111,6 +117,7 @@ betURL = "http://localhost:3000/bets"
                 getMoneyLine={this.getMoneyLine}
                 getWagerAmount={this.getWagerAmount}
                 getPayout={this.getPayout}
+                getPlusMinus={this.getPlusMinus}
             />
             
             </div>

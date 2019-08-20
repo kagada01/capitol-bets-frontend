@@ -21,18 +21,38 @@ class AvailableBets extends React.Component {
     )}
 
     takeBet = (event) => {
-        console.log(event)
-        // debugger
+       if (event.user_id == localStorage.user_id) {
+           alert("Sorry, you cannot take your own bet!")
+       } else {
+
+       }
+
+       console.log(event)
+        // event.preventDefault()
+
+        // fetch('http://localhost:3000/bets', {
+        //     method: 'POST', 
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         // event["bet_taker_id"] = localStorage.getItem("user_id")
+        //     })
+        // })
+
     }
 
          render() {
+
+
+           
              return (
 
                 <div className="AvailableBets">
                 <h3>Select a Game to Bet on! | Wallet: $500</h3>
                 
                
-                {
+                {  
                    this.state.availableBets.map(availBetObj => <CardExampleGroups 
                    key={availBetObj.id}
                    availBetObj={availBetObj}
