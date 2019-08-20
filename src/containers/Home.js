@@ -54,6 +54,7 @@ betURL = "http://localhost:3000/bets"
         let data = {
             game_id: this.state.selectedGame.id,
             user_id: localStorage.getItem("user_id"),
+            payout: 0,
             bet_taker_id: 0,
             money_line_odds: this.state.moneyLine,
             wager_amount: this.state.wagerAmount,

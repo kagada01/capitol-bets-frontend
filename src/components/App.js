@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Login from "./Login";
 import Home from "../containers/Home"
 import MyBets from "../containers/MyBets"
+import AvailableBets from "../containers/AvailableBets"
 import { Route, Switch, Redirect, withRouter, Link } from 'react-router-dom'
 // import store from '../redux/store'
 import BetCard from './BetCard';
