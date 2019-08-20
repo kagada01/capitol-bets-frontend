@@ -3,6 +3,9 @@ import { Button, Card, Image } from 'semantic-ui-react'
 
 
 const CardExampleGroups = (props) => (
+
+<div onClick={() => props.takeBet(props.availBetObj)}>
+
 <Card.Group>
     <Card>
       <Card.Content>
@@ -25,6 +28,7 @@ const CardExampleGroups = (props) => (
       </Card.Content>
     </Card>
     </Card.Group>
+</div>
 )
 
 export default CardExampleGroups;

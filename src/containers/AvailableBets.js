@@ -19,6 +19,11 @@ class AvailableBets extends React.Component {
         })
     }
     )}
+
+    takeBet = (event) => {
+        console.log("trying to take bet")
+    }
+
          render() {
              return (
 
@@ -30,6 +35,7 @@ class AvailableBets extends React.Component {
                    this.state.availableBets.map(availBetObj => <CardExampleGroups 
                    key={availBetObj.id}
                    availBetObj={availBetObj}
+                   takeBet={this.takeBet}
                    />
                        
               ) 
