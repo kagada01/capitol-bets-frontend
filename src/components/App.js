@@ -88,8 +88,7 @@ updateCurrentUser = (currentUser) => {
         
         <Home 
         currentUser={this.state.currentUser} 
-        allGames={this.state.allGames}     
-        myBets={this.state.myBets}   
+        allGames={this.state.allGames}        
         /> : 
         <Redirect to="/login" />)
         }
@@ -101,7 +100,14 @@ updateCurrentUser = (currentUser) => {
         myBets={this.state.myBets}/>
         }
       }/>
-      
+
+      <Route exact path="/availablebets" render={()=> {
+        return <AvailableBets 
+        currentUser={this.state.currentUser}
+        />
+        }
+      }/>
+
     <Route exact path="/logout" render={() => <Redirect to="/login" />} />
     
       </Switch>

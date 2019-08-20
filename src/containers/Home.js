@@ -87,9 +87,9 @@ betURL = "http://localhost:3000/bets"
 
     return (
         
-        <div className="Home">Home>
+        <div className="Home">
             
-        <div><h4>My Wallet: $500 </h4></div>    
+        <div><h3>Upcoming Games | Wallet: $500 </h3></div>    
             <div className="GamesContainer">
                 <GamesContainer
                 allGames={this.props.allGames} 

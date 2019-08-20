@@ -27,8 +27,7 @@ class MyBets extends React.Component {
         return (
             
             <div className="MyBets">
-                MyBets 
-                <h4>My Wallet: $500</h4>
+                <h3>Your Bets | Wallet: $500</h3>
                 {
                    this.state.MyBets.map(betObj => <PlacedBetCard 
                     key={betObj.id}

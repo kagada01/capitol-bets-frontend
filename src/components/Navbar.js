@@ -31,7 +31,7 @@ return (
           active={pathname === "/mybets"}
         />
 
-<Menu.Item
+        <Menu.Item
           as={NavLink}
           to="/availablebets"
           name="Available Bets"
