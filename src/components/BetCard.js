@@ -4,8 +4,6 @@ import PlaceBetButton from './PlaceBetButton'
 
 const FormExampleEvenlyDividedGroup = (props) => (
 
-
-
 <Fragment>
   
   {props.selectedGame !== [] ? (

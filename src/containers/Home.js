@@ -71,7 +71,11 @@ betURL = "http://localhost:3000/bets"
             .then(res => res.json())
             .then(placedBetObj => {
                 console.log(placedBetObj)
-                this.props.myBets.push(placedBetObj)
+                this.setState({
+                    currentBet: placedBetObj
+                })
+                
+                // this.props.myBets.push(placedBetObj)
             })
         // ) : ( 
         //     alert("Please select a game to bet on!")
