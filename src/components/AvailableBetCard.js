@@ -4,7 +4,10 @@ import { Button, Card, Image } from 'semantic-ui-react'
 
 const CardExampleGroups = (props) => (
 
-<Card.Group>
+  // props.availBetObj ? (
+// console.log(props)
+  // <div>"test"</div>
+ <Card.Group>
     <Card>
       <Card.Content>
         <Image floated='right' size='mini' src='https://www.anbmedia.com/wp/wp-content/uploads/2019/03/mlb-1027x780.jpg' />
@@ -26,8 +29,8 @@ const CardExampleGroups = (props) => (
         </div>
       </Card.Content>
     </Card>
-    </Card.Group>
-// </div>
+    </Card.Group> 
+// </div> 
 )
 
 export default CardExampleGroups;

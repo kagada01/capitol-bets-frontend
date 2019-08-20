@@ -17,7 +17,8 @@ class AvailableBets extends React.Component {
          this.setState({
             availableBets: availBets
         })
-    }
+    
+    }  
     )}
 
     takeBet = (event) => {
@@ -25,26 +26,24 @@ class AvailableBets extends React.Component {
            alert("Sorry, you cannot take your own bet!")
        } else {
 
+        let betId = event.id
+
+        fetch(`http://localhost:3000/bets/${betId}`, {
+            method: 'PATCH', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                bet_taker_id: localStorage.getItem("user_id")
+            })
+        }).then(res => res.json())
+        .then(acceptedBet => {
+            console.log(acceptedBet)
+        })
        }
-
-       console.log(event)
-        // event.preventDefault()
-
-        // fetch('http://localhost:3000/bets', {
-        //     method: 'POST', 
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //         // event["bet_taker_id"] = localStorage.getItem("user_id")
-        //     })
-        // })
-
     }
 
          render() {
-
-
            
              return (
 
@@ -53,13 +52,17 @@ class AvailableBets extends React.Component {
                 
                
                 {  
+                this.state.availableBets ? (
+
                    this.state.availableBets.map(availBetObj => <CardExampleGroups 
                    key={availBetObj.id}
                    availBetObj={availBetObj}
                    takeBet={this.takeBet}
                    />
-                       
-              ) 
+                   
+                   ) 
+                ) : null
+
                 }
                 </div> 
    
