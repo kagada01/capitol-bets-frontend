@@ -10,7 +10,7 @@ const PlacedBetCard = (props) => (
         link
         header={props.betObj.game.game_team2 + ' @ ' + props.betObj.game.game_team1} 
         meta={'Suggested Odds: ' + props.betObj.game.suggested_odds}
-        description= {'Your Odds: ' + [props.betObj.money_line_odds].join('')}
+        description= {'Your Odds: ' + [props.betObj.money_line_odds + ' Payout: $' + props.betObj.payout].join('')}
       />
     )
 
