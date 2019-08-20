@@ -21,7 +21,8 @@ class AvailableBets extends React.Component {
     )}
 
     takeBet = (event) => {
-        console.log("trying to take bet")
+        console.log(event)
+        // debugger
     }
 
          render() {
