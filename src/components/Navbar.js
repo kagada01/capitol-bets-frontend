@@ -7,9 +7,11 @@ const Navbar = (props) => {
   let logged_in = props.logged_in
   let logout = () => {
    //clear localstorage of our token
-   localStorage.removeItem("jwt")
+   localStorage.clear()
     //set the user state back to null
    props.updateCurrentUser(null)
+
+    props.history.push("/login")
   }
 
 return (

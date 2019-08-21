@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CardExampleGroups from '../components/AvailableBetCard'
+import swal from 'sweetalert';
 
 class AvailableBets extends React.Component {
 
@@ -23,7 +24,11 @@ class AvailableBets extends React.Component {
 
     takeBet = (event) => {
        if (event.user_id == localStorage.user_id) {
-           alert("Sorry, you cannot take your own bet!")
+           swal({ 
+               text: "Sorry, you cannot take your own bet!",
+                icon: "error",
+                button: "OK"
+            })
        } else {
 
         let betId = event.id

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import GamesContainer from "../containers/GamesContainer"
 import BetCard from '../components/BetCard';
 import { StepTitle } from 'semantic-ui-react';
+import swal from 'sweetalert';
 
 class Home extends React.Component {
     
 betURL = "http://localhost:3000/bets"
 
     state = {
-        selectedGame:[],
+        selectedGame: [],
         currentBet: [],
         plusMinus: null,  
         moneyLine: 0,
@@ -57,16 +58,26 @@ betURL = "http://localhost:3000/bets"
     //will take form data and turn into a Bet object
     //then post it to /bets
     postBet = (state) => {
-        let data = {
-            game_id: this.state.selectedGame.id,
-            user_id: localStorage.getItem("user_id"),
-            payout: 0,
-            bet_taker_id: 0,
-            money_line_odds: this.state.moneyLine,
-            wager_amount: this.state.wagerAmount,
-            winner_id: 0
-        }
-    
+        // debugger
+         if (this.state.selectedGame.length == 0) { 
+
+            swal({ 
+                text: "Please select a game before trying to place a bet!",
+                 icon: "error",
+                 button: "OK"
+             })
+
+         } else {
+            let data = {
+                game_id: this.state.selectedGame.id,
+                user_id: localStorage.getItem("user_id"),
+                payout: 0,
+                bet_taker_id: 0,
+                money_line_odds: this.state.moneyLine,
+                wager_amount: this.state.wagerAmount,
+                winner_id: 0
+            }
+     
         //NEED TO IMPLEMENT WORKING ALERT IF NO GAME IS SELECTED
         // data.game_id ? ( 
         fetch("http://localhost:3000/bets", {
@@ -81,12 +92,8 @@ betURL = "http://localhost:3000/bets"
                 this.setState({
                     currentBet: placedBetObj
                 })
-                
-                // this.props.myBets.push(placedBetObj)
-            })
-        // ) : ( 
-        //     alert("Please select a game to bet on!")
-        //  )
+        })
+         } 
     }
 
     render(){
@@ -123,8 +130,7 @@ betURL = "http://localhost:3000/bets"
             </div>
 
         </div>
-        )
-        } 
+        )} 
     }
 
 export default Home;
