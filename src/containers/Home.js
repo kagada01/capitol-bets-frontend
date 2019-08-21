@@ -93,6 +93,13 @@ betURL = "http://localhost:3000/bets"
                     currentBet: placedBetObj
                 })
         })
+
+        swal({ 
+            text: "Bet Placed Succesfully!",
+             icon: "success",
+             button: "OK"
+         })
+
          } 
     }
 
