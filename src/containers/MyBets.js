@@ -13,15 +13,19 @@ class MyBets extends React.Component {
        .then(res => res.json())
        .then(betsData => {
             let filteredBets = betsData.filter(betsObj => {
-                // console.log(betsObj.id)
+
                 return betsObj.user_id == localStorage.getItem("user_id")
-        })
+
+            })
         // console.log(filteredBets)
         this.setState({
             MyBets: filteredBets
         })
     })
 }
+
+//betsObj.bet_setter_id == localStorage.getItem("user_id")
+
 
     render() {
         return (

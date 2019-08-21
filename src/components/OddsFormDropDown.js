@@ -6,6 +6,8 @@ const options = [
   { key: 2, text: 'Minus (-)', value: '-' }
 ]
 
-const OddsFormDropDown = (props) => <Dropdown clearable options={options} selection />
+const OddsFormDropDown = (props) => 
+<Dropdown clearable options={options} selection 
+/>
 
 export default OddsFormDropDown

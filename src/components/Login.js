@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import { Button, Form, Segment, Message} from "semantic-ui-react";
+import swal from 'sweetalert';
+
 
 class Login extends React.Component {
 
@@ -37,10 +39,19 @@ class Login extends React.Component {
           localStorage.setItem("jwt", data.token)
           // debugger
           localStorage.setItem("user_id", data.user.id)
+        
         }else{
           alert("incorrect username or password")
         }
       })
+    
+      swal({ 
+        text: "Login Successful! Welcome to Capitol Bets!",
+         icon: "success",
+         button: false,
+         timer: 1200
+     })
+    
     }
 
     render() {

@@ -2,7 +2,9 @@ import React, { Component } from "react"
 import { Card } from 'semantic-ui-react'
 
 const PlacedBetCard = (props) => (
-  
+// betsObj.bet_setter_id == localStorage.getItem("user_id")
+//bet_taker_id is being set successfully
+//MyBets: [] is in myBets, so I need to trigger a myBets state change/refresh
 //   <div onClick={() => props.goToBets(props.gameObj)}>
       <Card
         

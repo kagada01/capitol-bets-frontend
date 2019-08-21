@@ -4,6 +4,8 @@ import BetCard from '../components/BetCard';
 import { StepTitle } from 'semantic-ui-react';
 import swal from 'sweetalert';
 
+//UX - NEED Suggested Odds on Home, NOT MyBets
+
 class Home extends React.Component {
     
 betURL = "http://localhost:3000/bets"

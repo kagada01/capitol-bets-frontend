@@ -45,6 +45,15 @@ class AvailableBets extends React.Component {
         .then(acceptedBet => {
             console.log(acceptedBet)
         })
+
+        swal({ 
+            text: `Congrats! You've accepted the bet!`,
+             icon: "success",
+             button: "Thanks"
+         })
+
+         this.setState({ state: this.state })
+
        }
     }
 
