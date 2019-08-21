@@ -91,9 +91,10 @@ betURL = "http://localhost:3000/bets"
             .then(res => res.json())
             .then(placedBetObj => {
                 console.log(placedBetObj)
-                this.setState({
+                this.setState({    
                     currentBet: placedBetObj
                 })
+                this.props.createBet(placedBetObj)
         })
 
         swal({ 
@@ -134,6 +135,7 @@ betURL = "http://localhost:3000/bets"
                 getWagerAmount={this.getWagerAmount}
                 getPayout={this.getPayout}
                 getPlusMinus={this.getPlusMinus}
+                createBet={this.props.createBet}
             />
             
             </div>

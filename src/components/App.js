@@ -16,7 +16,8 @@ class App extends React.Component {
     this.state = {
       currentUser: null,
       allGames: [],
-      myWallet: 500
+      myWallet: 500,
+      myBets: []
     }
 }
 
@@ -45,7 +46,21 @@ updateCurrentUser = (currentUser) => {
           allGames: upcomingGames
         })
       })
-  })
+    })
+
+    fetch("http://localhost:3000/bets") 
+       .then(res => res.json())
+       .then(betsData => {
+            let filteredBets = betsData.filter(betsObj => {
+                return betsObj.user_id == localStorage.getItem("user_id") || betsObj.bet_taker_id == localStorage.getItem("user_id")
+            })
+        this.setState({
+            myBets: filteredBets
+        })
+        let nonStateBetsArray = [] 
+        nonStateBetsArray.push(filteredBets)
+        console.log(nonStateBetsArray)
+    })
 
     //check to see if there is a jwt?
     //if there is, fetch to get the user and update the user state
@@ -62,10 +77,23 @@ updateCurrentUser = (currentUser) => {
     //if not let them login 
   }
 
+    addBet = (betObject) => {
+      let takenBets = []
+      takenBets.push(betObject)
+      console.log(takenBets)
+    }
+
+  //need to use previous data and add into it
+
+    createBet = (object) => {
+      this.setState({
+        myBets: [...this.state.myBets, object]
+      })
+    }
+
   //set selected game as state for placing a bet
   //event handler for selecting GameObject to Bet on
 
- 
   render() { 
     return (
      <Fragment>
@@ -88,7 +116,9 @@ updateCurrentUser = (currentUser) => {
         
         <Home 
         currentUser={this.state.currentUser} 
-        allGames={this.state.allGames}        
+        allGames={this.state.allGames}
+        addBet={this.addBet}
+        createBet={this.createBet}        
         /> : 
         <Redirect to="/login" />)
         }
@@ -97,13 +127,16 @@ updateCurrentUser = (currentUser) => {
       <Route exact path="/mybets" render={()=> {
         return <MyBets 
         currentUser={this.state.currentUser}
-        myBets={this.state.myBets}/>
+        myBets={this.state.myBets}
+        />
         }
       }/>
 
       <Route exact path="/availablebets" render={()=> {
         return <AvailableBets 
         currentUser={this.state.currentUser}
+        myBets={this.state.myBets}
+        addBet={this.addBet}
         />
         }
       }/>

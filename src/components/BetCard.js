@@ -41,6 +41,7 @@ const FormExampleEvenlyDividedGroup = (props) => (
           moneyLine={props.moneyLine}
           wagerAmount={props.wagerAmount}
           payout={props.payout}
+         
       />
     </Form>
   
