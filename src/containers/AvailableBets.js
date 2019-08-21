@@ -52,7 +52,6 @@ class AvailableBets extends React.Component {
              button: "Thanks"
          })
 
-         this.setState({ state: this.state })
 
        }
     }
