@@ -77,10 +77,10 @@ updateCurrentUser = (currentUser) => {
     //if not let them login 
   }
 
-    addBet = (betObject) => {
-      let takenBets = []
-      takenBets.push(betObject)
-      console.log(takenBets)
+    addBet = (takenBetObject) => {
+      this.setState({
+        myBets: [...this.state.myBets, takenBetObject]
+      })
     }
 
   //need to use previous data and add into it

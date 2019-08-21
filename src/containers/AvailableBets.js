@@ -51,8 +51,17 @@ class AvailableBets extends React.Component {
         }).then(res => res.json())
         .then(acceptedBet => {
             // debugger 
-            this.props.addBet(acceptedBet)
-             
+           this.props.addBet(acceptedBet)
+            
+           let stateCopy = [...this.state.availableBets]
+            
+           let notAcceptedPlacedBets = stateCopy.filter(placedBetObj => {
+                return (placedBetObj.id !== acceptedBet.id)
+            })
+           
+            this.setState({
+                availableBets: notAcceptedPlacedBets
+            }) 
         })
 
         swal({ 
