@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CardExampleGroups from '../components/AvailableBetCard'
 import swal from 'sweetalert';
-import { Header } from 'semantic-ui-react';
+import { Header, Card } from 'semantic-ui-react';
 
 class AvailableBets extends React.Component {
 
@@ -78,7 +78,9 @@ class AvailableBets extends React.Component {
              return (
 
                 <div className="AvailableBets">
-                    <Header as='h3'>Select a Game to Bet on! | Wallet: $500</Header>                  
+                  <Header as='h1' align="center" className="AvailableBetsMainHeader">Available Bets</Header>                  
+
+                  <Header as='h3' className="AvailableBetsSubHeader">Select a Game to Bet on! | Wallet: $500</Header>                  
                 <br />
                 {  
                 this.state.availableBets ? (
@@ -87,6 +89,7 @@ class AvailableBets extends React.Component {
                    key={availBetObj.id}
                    availBetObj={availBetObj}
                    takeBet={this.takeBet}
+                   currentUser={this.props.currentUser}
                    />
                    
                    ) 

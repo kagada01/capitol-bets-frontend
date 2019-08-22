@@ -88,7 +88,38 @@
   width: 750px;
 }
 
+/* Home Sub-Header */
 .UpcomingGames {
   position: relative;
   left: 40px;
+}
+
+/* MyBets Sub-Header */
+.YourBetsHeader {
+  position: relative;
+  left: 40px;
+}
+/* 
+.AvailableBetsMainHeader {
+  position: center;
+} */
+
+.AvailableBetsSubHeader {
+  position: relative;
+  left: 40px;
+}
+
+/* Available Bets Cards Group */
+.AvailableBetsCardGroup {
+  position: relative;
+  left: 450px;
+  width: 600px;
+}
+
+.NavTitle {
+  position: relative;
+  /* text-align: center; */
+  left: 300px;
+  color: white solid;
+  bottom: 12px;
 }

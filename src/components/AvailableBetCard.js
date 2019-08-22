@@ -7,7 +7,7 @@ const CardExampleGroups = (props) => (
   // props.availBetObj ? (
 // console.log(props)
   // <div>"test"</div>
- <Card.Group>
+ <Card.Group className="AvailableBetsCardGroup" itemsPerRow={2}>
     <Card>
       <Card.Content>
         <Image floated='right' size='mini' src='https://www.anbmedia.com/wp/wp-content/uploads/2019/03/mlb-1027x780.jpg' />

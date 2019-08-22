@@ -16,3 +16,6 @@ const PlacedBetCard = (props) => (
     )
 
 export default PlacedBetCard
+
+
+// Bet Placed By:'+ props.currentUser.username

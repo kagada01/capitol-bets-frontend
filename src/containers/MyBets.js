@@ -16,7 +16,9 @@ class MyBets extends React.Component {
         return (
             
             <div className="MyBets">
-                <Header as='h3'>Your Bets | Wallet: $500</Header>
+                <Header align="center" className="MyBetsHeader" as='h1'>My Bets</Header>    
+
+                <Header as='h3' className="YourBetsHeader">Your Bets | Wallet: $500</Header>
                 <br />
                 
                 <Card.Group itemsPerRow={2} className="PlacedBetCardsGroup">
@@ -25,6 +27,7 @@ class MyBets extends React.Component {
                     this.props.myBets.map(betObj => <PlacedBetCard 
                     key={betObj.id}
                     betObj={betObj}
+                    currentUser={this.props.currentUser}
                    />
                    )
                    

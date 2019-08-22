@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import GamesContainer from "../containers/GamesContainer"
 import BetCard from '../components/BetCard';
-import { StepTitle, Header } from 'semantic-ui-react';
+import { StepTitle, Header, Image } from 'semantic-ui-react';
 import swal from 'sweetalert';
 var moment = require('moment');   
 
 //UX - NEED Suggested Odds on Home, NOT MyBets
 
 class Home extends React.Component {
-    
+
+homeImg = "https://www.trzcacak.rs/myfile/detail/445-4457780_us-capitol-building-silhouette.png"  
 betURL = "http://localhost:3000/bets"
 
     state = {
@@ -71,7 +72,10 @@ betURL = "http://localhost:3000/bets"
     //Placebet Form submission button callback function
     //will take form data and turn into a Bet object
     //then post it to /bets
-    postBet = (state) => {
+    postBet = (event, state) => {
+       console.log(event)
+        let toggleGame = event.currentTarget.firstChild.firstChild
+       
         // debugger
          if (this.state.selectedGame.length == 0) { 
 
@@ -121,9 +125,12 @@ betURL = "http://localhost:3000/bets"
     render(){
 
     return (
-        
+    
         <div className="Home">
-    <Header align="center" className="MainHomeHeader" as='h1'>Welcome to Capitol Bets!</Header>    
+
+
+<Image src={this.homeImg} size="small" centered/>
+    <Header align="center" className="MainHomeHeader" as='h1'>Welcome to Capitol Bets! </Header>    
 
         <br />
         <div>
@@ -156,7 +163,7 @@ betURL = "http://localhost:3000/bets"
                 // centered='true'
                 allGames={this.props.allGames} 
                 goToBets={this.goToBets}
-                
+                currentUser={this.props.currentUser}
                 />
             </div>
 
