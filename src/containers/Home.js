@@ -23,8 +23,9 @@ betURL = "http://localhost:3000/bets"
     //callback function to update selectedGame state when clicking a given GameCard
     goToBets = (event, gameObj) => {
       
-    let toggleGame = event.currentTarget
-        if (toggleGame.className == "selectedGame") {
+    let toggleGame = event.currentTarget.firstChild.firstChild
+    console.log(toggleGame)
+        if (toggleGame.className == "content selectedGame") {
             toggleGame.classList.remove("selectedGame")
         } else { 
             toggleGame.classList.add("selectedGame")

@@ -72,12 +72,12 @@
 }
 
 .selectedGame {
-  border: green solid 2px;
+  border: green solid 2px !important;
   
 }
 
 .game {
-  border: black solid 2px !important;
+  /* border: black solid 2px !important; */
   margin-right: 20px !important;
   margin-bottom: 20px !important;
 }
