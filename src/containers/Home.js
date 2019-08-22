@@ -21,11 +21,21 @@ betURL = "http://localhost:3000/bets"
     }
 
     //callback function to update selectedGame state when clicking a given GameCard
-    goToBets = (gameObj) => {
-        this.setState({
-          selectedGame: gameObj
-        })
+    goToBets = (event, gameObj) => {
+      
+    let toggleGame = event.currentTarget
+        if (toggleGame.className == "selectedGame") {
+            toggleGame.classList.remove("selectedGame")
+        } else { 
+            toggleGame.classList.add("selectedGame")
+
+            this.setState({
+                selectedGame: gameObj
+            })
     }
+    }
+      
+        
 
 //*************Place Bet Form****************//
     //callback function for controlled Money Line input
@@ -112,13 +122,12 @@ betURL = "http://localhost:3000/bets"
     return (
         
         <div className="Home">
-            
-        <div>
-        <Header as='h3'>Upcoming Games | Wallet: $500 | {moment().format('MMMM Do, YYYY')}</Header>    
-        </div> 
-        
+    <Header align="center" className="MainHomeHeader" as='h1'>Welcome to Capitol Bets!</Header>    
+
         <br />
-       
+        <div>
+        <Header className="UpcomingGames" as='h3'>Upcoming Games | Wallet: $500 | {moment().format('MMMM Do, YYYY')}</Header>    
+        </div>    
         
             <div className="BetCard">
             <BetCard 

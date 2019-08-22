@@ -5,6 +5,8 @@ import { Card } from "semantic-ui-react"
 
 const GamesContainer = (props) => {
 
+
+
     return (
             <div className="GamesContainerComp">   
                 <Card.Group itemsPerRow={2} className="GameCardGroup">
@@ -16,6 +18,7 @@ const GamesContainer = (props) => {
                     key={gameObj.id}
                     gameObj={gameObj}
                     goToBets={props.goToBets}
+                   
                     />  
                 )
          

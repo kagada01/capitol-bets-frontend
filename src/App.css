@@ -59,7 +59,7 @@
   
   /* flex-direction: column ; */
   width: 200px !important;
-  border: blue solid 2px;
+  /* border: blue solid 2px; */
 }
 
 .place-bet-dropdown {
@@ -71,7 +71,24 @@
   left: 75px;
 }
 
+.selectedGame {
+  border: green solid 2px;
+  
+}
 
-/* .GameCard {
-  ::selection { background: blue };
-} */
+.game {
+  border: black solid 2px !important;
+  margin-right: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.PlacedBetCardsGroup {
+  position: relative;
+  left: 225px;
+  width: 750px;
+}
+
+.UpcomingGames {
+  position: relative;
+  left: 40px;
+}

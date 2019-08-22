@@ -5,9 +5,10 @@ import BetCard from "./BetCard"
 const CardExampleLinkCardProp = (props) => (
   
   //upon click, render new BetCard with GameCard's props
-<div onClick={() => props.goToBets(props.gameObj)}>
+<div onClick={(event) => props.goToBets(event, props.gameObj)}>
    
     <Card
+      className="game"
       key={props.gameObj.id}
       link
       header={`${props.gameObj.game_team2} @ ${props.gameObj.game_team1}`}

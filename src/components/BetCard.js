@@ -11,14 +11,14 @@ const FormExampleEvenlyDividedGroup = (props) => (
     <Form className="form-box">
       <Form.Group widths='equal'>
         <Form.Field>
-          <label>Set Money Line</label>
+          <label><h4>Set Money Line</h4></label>
           <Input className="place-bet-form"
             onChange={props.getMoneyLine}
             placeholder='+250' 
             />
             <br />
             <br />
-            <label>Plus(+) / Minus (-)</label>
+            <label><h4>Plus(+) / Minus (-)</h4></label>
             <OddsFormDropDown
             className="place-bet-dropdown"
             getPlusMinus={props.getPlusMinus}
@@ -27,7 +27,7 @@ const FormExampleEvenlyDividedGroup = (props) => (
         </Form.Field>
         <Divider />
         <Form.Field>
-          <label>Wager Amount</label>
+          <label><h4>Wager Amount</h4></label>
           <Input 
           className="place-bet-form"
             onChange={props.getWagerAmount} 
@@ -36,7 +36,7 @@ const FormExampleEvenlyDividedGroup = (props) => (
         </Form.Field>
         <br />
         <Form.Field >
-          <label>Payout</label>
+          <label><h4>Payout</h4></label>
           <Input 
           className="place-bet-form"
           placeholder='Payout'
