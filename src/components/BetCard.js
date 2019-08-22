@@ -8,34 +8,43 @@ const FormExampleEvenlyDividedGroup = (props) => (
 <Fragment>
   
   {props.selectedGame !== [] ? (
-    <Form>
+    <Form className="form-box">
       <Form.Group widths='equal'>
         <Form.Field>
           <label>Set Money Line</label>
-          <Input 
+          <Input className="place-bet-form"
             onChange={props.getMoneyLine}
-            fluid placeholder='+250' 
+            placeholder='+250' 
             />
+            <br />
+            <br />
             <OddsFormDropDown
+            className="place-bet-dropdown"
             getPlusMinus={props.getPlusMinus}
+            
             />
         </Form.Field>
+        <Divider />
         <Form.Field>
           <label>Wager Amount</label>
           <Input 
+          className="place-bet-form"
             onChange={props.getWagerAmount} 
-            fluid placeholder='Wager Amount' 
+            placeholder='Wager Amount' 
             />
         </Form.Field>
-        <Form.Field>
+        <Form.Field >
           <label>Payout</label>
           <Input 
+          className="place-bet-form"
+          placeholder='Payout'
+          readOnly
           onChange={props.getPayout}
-          fluid placeholder={'Payout'} 
+          // placeholder='Payout' 
           />
         </Form.Field>
       </Form.Group>
-      <PlaceBetButton
+      <PlaceBetButton 
           postBet={props.postBet}
           currentUser={props.currentUser}
           moneyLine={props.moneyLine}

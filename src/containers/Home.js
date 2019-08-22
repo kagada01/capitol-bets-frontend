@@ -3,6 +3,7 @@ import GamesContainer from "../containers/GamesContainer"
 import BetCard from '../components/BetCard';
 import { StepTitle } from 'semantic-ui-react';
 import swal from 'sweetalert';
+var moment = require('moment');   
 
 //UX - NEED Suggested Odds on Home, NOT MyBets
 
@@ -112,14 +113,9 @@ betURL = "http://localhost:3000/bets"
         
         <div className="Home">
             
-        <div><h3>Upcoming Games | Wallet: $500 </h3></div>    
-            <div className="GamesContainer">
-                <GamesContainer
-                allGames={this.props.allGames} 
-                goToBets={this.goToBets}
-                
-                />
-            </div>
+        <div><h3>Upcoming Games | Wallet: $500 | {moment().format('MMMM Do, YYYY')}</h3></div> 
+        
+            
         
             <div className="BetCard">
             <BetCard 
@@ -138,6 +134,16 @@ betURL = "http://localhost:3000/bets"
                 createBet={this.props.createBet}
             />
             
+            </div>
+
+            <div className="GamesContainer">
+            <br />
+            <br />
+                <GamesContainer
+                allGames={this.props.allGames} 
+                goToBets={this.goToBets}
+                
+                />
             </div>
 
         </div>

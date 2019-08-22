@@ -31,3 +31,35 @@
     transform: rotate(360deg);
   }
 }
+
+.GamesContainer {
+  /* display: column; */
+  /* margin: 0px auto; */
+  position: relative;
+  
+}
+
+.GamesContainerComp {
+  position: absolute;
+  top: 0;
+  right: 60px;
+}
+
+.form-box {
+  /* border: red solid 2px; */
+  /* display: flex !important; */
+  /* width: 300px; */
+  /* flex-direction: column !important; */
+}
+
+.place-bet-form {
+  display: flex;
+  
+  /* flex-direction: column ; */
+  width: 200px !important;
+  border: blue solid 2px;
+}
+
+.place-bet-dropdown {
+  width: 200px !important;
+}

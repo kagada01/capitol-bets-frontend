@@ -40,17 +40,25 @@ class Login extends React.Component {
           // debugger
           localStorage.setItem("user_id", data.user.id)
         
+          swal({ 
+            text: "Login Successful! Welcome to Capitol Bets!",
+             icon: "success",
+             button: false,
+             timer: 1200
+         })
+
         }else{
-          alert("incorrect username or password")
+
+          swal({ 
+              text: "Incorrect password or username, please try again.",
+             icon: "error",
+             button: "OK"
+         })
+
         }
       })
     
-      swal({ 
-        text: "Login Successful! Welcome to Capitol Bets!",
-         icon: "success",
-         button: false,
-         timer: 1200
-     })
+      
     
     }
 
@@ -86,7 +94,7 @@ class Login extends React.Component {
               value={this.state.password}
             />
           </Form.Group>
-          <Button type="submit">Login
+          <Button color='blue' type="submit">Login 
           </Button>
         </Form>
       </Segment>
