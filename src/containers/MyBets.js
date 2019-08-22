@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Header } from 'semantic-ui-react'
 import PlacedBetCard from "../components/PlacedBetCard"
 
 class MyBets extends React.Component {
@@ -15,8 +16,10 @@ class MyBets extends React.Component {
         return (
             
             <div className="MyBets">
-                <h3>Your Bets | Wallet: $500</h3>
+                <Header as='h3'>Your Bets | Wallet: $500</Header>
+                <br />
                 
+
                 { this.props.myBets ? (
                    this.props.myBets.map(betObj => <PlacedBetCard 
                     key={betObj.id}

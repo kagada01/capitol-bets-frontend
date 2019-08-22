@@ -18,6 +18,7 @@ const FormExampleEvenlyDividedGroup = (props) => (
             />
             <br />
             <br />
+            <label>Plus(+) / Minus (-)</label>
             <OddsFormDropDown
             className="place-bet-dropdown"
             getPlusMinus={props.getPlusMinus}
@@ -33,6 +34,7 @@ const FormExampleEvenlyDividedGroup = (props) => (
             placeholder='Wager Amount' 
             />
         </Form.Field>
+        <br />
         <Form.Field >
           <label>Payout</label>
           <Input 

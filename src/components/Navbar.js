@@ -15,7 +15,7 @@ const Navbar = (props) => {
   }
 
 return (
-  <Menu>
+  <Menu inverted>
   {logged_in ? (
     
     <Fragment>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GamesContainer from "../containers/GamesContainer"
 import BetCard from '../components/BetCard';
-import { StepTitle } from 'semantic-ui-react';
+import { StepTitle, Header } from 'semantic-ui-react';
 import swal from 'sweetalert';
 var moment = require('moment');   
 
@@ -113,9 +113,12 @@ betURL = "http://localhost:3000/bets"
         
         <div className="Home">
             
-        <div><h3>Upcoming Games | Wallet: $500 | {moment().format('MMMM Do, YYYY')}</h3></div> 
+        <div>
+        <Header as='h3'>Upcoming Games | Wallet: $500 | {moment().format('MMMM Do, YYYY')}</Header>    
+        </div> 
         
-            
+        <br />
+       
         
             <div className="BetCard">
             <BetCard 
@@ -140,6 +143,7 @@ betURL = "http://localhost:3000/bets"
             <br />
             <br />
                 <GamesContainer
+                // centered='true'
                 allGames={this.props.allGames} 
                 goToBets={this.goToBets}
                 

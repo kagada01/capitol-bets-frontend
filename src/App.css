@@ -46,6 +46,8 @@
 }
 
 .form-box {
+  position: absolute;
+  margin: 40px;
   /* border: red solid 2px; */
   /* display: flex !important; */
   /* width: 300px; */
@@ -63,3 +65,13 @@
 .place-bet-dropdown {
   width: 200px !important;
 }
+
+.GameCardGroup {
+  position: relative;
+  left: 75px;
+}
+
+
+/* .GameCard {
+  ::selection { background: blue };
+} */
